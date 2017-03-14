@@ -1,0 +1,28 @@
+{
+  "name": "simplechat",
+  "version": "1.0.0",
+  "description": "Simple Socket.io Chat for Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indiependente/simplechat.git"
+  },
+  "keywords": [
+    "nodejs",
+    "socketio"
+  ],
+  "author": "indiependente",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indiependente/simplechat/issues"
+  },
+  "homepage": "https://github.com/indiependente/simplechat#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socketio": "^1.0.0"
+  }
+}
