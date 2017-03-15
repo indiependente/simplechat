@@ -35,6 +35,10 @@ $(function() {
     log(message);
   }
 
+  function getPartecipants () {
+    return 
+  }
+
   // Sets the client's username
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
@@ -210,7 +214,19 @@ $(function() {
     // When the client hits ENTER on their keyboard
     if (event.which === 13) {
       if (username) {
-        sendMessage();
+        var message = $inputMessage.val();
+        if (message.startsWith('!')) {
+          switch (message) {
+            case '!users': {
+              socket.emit('get users');
+              break;
+            }
+            // handle more commands here
+          }
+        }
+        else {
+          sendMessage();  
+        }
         socket.emit('stop typing');
         typing = false;
       } else {
@@ -275,4 +291,10 @@ $(function() {
   socket.on('stop typing', function (data) {
     removeChatTyping(data);
   });
+
+  // Whenever the server emits 'userslist', log the usernames provided
+  socket.on('userslist', function (data) {
+    log(data.users.join('\n'));
+  });
+
 }); 

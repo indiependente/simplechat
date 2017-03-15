@@ -53,6 +53,15 @@ server.listen(port, function () {
       });
     });
     
+
+    // when the client emits 'get user', this listens and returns the list of usernames
+    // emitting the 'userslist' event
+    socket.on('get users', function () {
+      socket.emit('userslist', {
+        users: Object.keys(usernames)
+      });
+    });
+
     // when the client emits 'typing', we broadcast it to others
     socket.on('typing', function () {
       socket.broadcast.emit('typing', {
