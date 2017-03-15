@@ -35,9 +35,6 @@ $(function() {
     log(message);
   }
 
-  function getPartecipants () {
-    return 
-  }
 
   // Sets the client's username
   function setUsername () {
@@ -223,6 +220,7 @@ $(function() {
             }
             // handle more commands here
           }
+	  $inputMessage.val('');
         }
         else {
           sendMessage();  
@@ -294,7 +292,7 @@ $(function() {
 
   // Whenever the server emits 'userslist', log the usernames provided
   socket.on('userslist', function (data) {
-    log(data.users.join('\n'));
+    log(data.users.join(' - '));
   });
 
 }); 
